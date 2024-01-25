@@ -52,13 +52,18 @@ body {
 
 .btn {
     font-size: 24px;
-    width: 15%;
-    margin-right: 2%;
+    width: 20%;
+    margin-right: 5%;
     float: left;
     background-color: black;
     color: white;
     text-align: center;
     border: 10px solid blue;
+    opacity: 0.8;
+}
+
+.btn:hover{
+    background-color: black;
 }
 
 .btn a {
