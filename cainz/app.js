@@ -1,15 +1,16 @@
-const btn = 
-    {
-        price: [100, 110, 120, 130],
-        name: ["プレーン", "チョコ", "抹茶", "イチゴ"]
-    };
+const btn =
+{
+    price: [100, 110, 120, 130],
+    name: ["プレーン", "チョコ", "抹茶", "イチゴ", "メロンパン", "糖質低減プレーン"]
+};
 
 
 let total = 0;
 let number = 0;
-const btnlength=btn.name.length;
-const $button = document.getElementsByClassName("btn");
-const $buttonName=$button.querySelect
+const btnlength = btn.name.length;
+const $buttonName = document.getElementsByClassName("btn-name");
+const $button = document.getElementsByTagName("button");
+const $buttonImage = document.getElementsByClassName("Image");
 const $numberdisplay = document.getElementById("number-dis");
 const $totaldisplay = document.getElementById("total-dis");
 
@@ -36,23 +37,51 @@ const ClickButton = (e) => {
 }
 
 
-// ボタン
-const Button_function = () => {
-    for (let i = 0; i < btnlength; i++) {
-        // ボタン名前
-        $button[i].textContent = btn.name[i];
+const ClickFunction = () => {
+    // const clickedElement = e.target;
+    //     ClickButton();
+    //     console.log(total);
+    //     console.log(number);
+    if ("name" === $button.innerHTML) {
+        total += btn.price[0];
+        number++;
     }
-
-
-    for (let j = 0; j < btnlength; j++) {
-        // ボタンclick
-        $button[j].addEventListener("click", (e) => {
-            ClickButton(e);
-            console.log(total);
-            console.log(number);
-        });
-    }
+    console.log("aaa");
+    console.log(total);
+    console.log(number);
+    console.log($button.innerHTML);
 }
+
+// ボタン
+// const Button_function = () => {
+//     for (let i = 0; i < btnlength; i++) {
+//         // ボタン名前
+//         $buttonName[i].textContent = btn.name[i];
+//     }
+//     $button.addEventListener("click", (e) => {
+//         ClickButton(e);
+//         console.log(total);
+//         console.log(number);
+//     });
+
+
+//     // for (let j = 0; j < btnlength; j++) {
+//     //     // ボタンclick
+//     //     $button[j].addEventListener("click", (e) => {
+//     //         ClickButton(e);
+//     //         console.log(total);
+//     //         console.log(number);
+//     //     });
+//     // }
+// };
+
+// const Click = () => {
+//     $button.addEventListener("click", (e) => {
+//         ClickButton(e);
+//         console.log(total);
+//         console.log(number);
+//     });
+// };
 
 
 //画面表示
@@ -61,5 +90,5 @@ const Display = () => {
     $totaldisplay.textContent = total;
 }
 
-Button_function();
+// Button_function();
 Display();

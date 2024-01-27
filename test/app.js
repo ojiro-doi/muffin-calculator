@@ -34,7 +34,7 @@ let quizIndex = 0;
 let score = 0;
 
 
-const $button = document.getElementsByTagName("button");
+const $button = document.getElementsByClassName("btn");
 let buttonLength = $button.length//選択肢の数
 
 //クイズの問題文、選択肢を表示
