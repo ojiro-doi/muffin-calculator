@@ -1,52 +1,65 @@
-
-const btn = [
+const btn = 
     {
-        price: 100, name: "プレーン"
-    }, {
-        price: 110, name: "チョコ"
-    }, {
-        price: 120, name: "抹茶"
-    }, {
-        price: 130, name: "イチゴ"
-    },
-];
+        price: [100, 110, 120, 130],
+        name: ["プレーン", "チョコ", "抹茶", "イチゴ"]
+    };
+
 
 let total = 0;
-const $button = document.getElementsByTagName("button");
+let number = 0;
+const btnlength=btn.name.length;
+const $button = document.getElementsByClassName("btn");
+const $buttonName=$button.querySelect
+const $numberdisplay = document.getElementById("number-dis");
+const $totaldisplay = document.getElementById("total-dis");
 
+// class Button{
+//     constructor(price,name){
+//         this.price=price;
+//         this.name=name;
+//     }
+// }
+
+
+
+//クリック時のpriceの合計、回数を表示
 const ClickButton = (e) => {
-for (let i = 0; i < btn.length; i++) {
-    if(btn[i].name===e.target.textContent){
-        total += btn[i].price;
+    for (let i = 0; i < btnlength; i++) {
+        if (btn.name[i] === e.target.textContent) {
+            total += btn.price[i];
+            number++;
+        }
     }
-}
- 
+
     console.log(e.target);
-
-
-    console.log(total);
+    Display();
 }
+
 
 // ボタン
-const button_function = () => {
-    for (let i = 0; i < btn.length; i++) {
+const Button_function = () => {
+    for (let i = 0; i < btnlength; i++) {
         // ボタン名前
-        $button[i].textContent = btn[i].name;
+        $button[i].textContent = btn.name[i];
     }
 
-    for (let j = 0; j < btn.length; j++) {
+
+    for (let j = 0; j < btnlength; j++) {
         // ボタンclick
         $button[j].addEventListener("click", (e) => {
             ClickButton(e);
-
+            console.log(total);
+            console.log(number);
         });
     }
 }
 
-button_function();
-
-
 
 //画面表示
+const Display = () => {
+    $numberdisplay.textContent = number;
+    $totaldisplay.textContent = total;
+}
 
-console.log("Hello, World!"); 
+Button_function();
+Display();
