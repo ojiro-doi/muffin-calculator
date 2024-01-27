@@ -20,7 +20,7 @@ body {
 /* main */
 .main {
     height: 500px;
-    background-color: bisque;
+
 }
 
 .display-wrapper {
@@ -50,19 +50,46 @@ body {
     text-align: center;
 }
 
-.btn {
-    font-size: 24px;
-    width: 15%;
-    margin-right: 2%;
-    float: left;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border: 10px solid blue;
+.a-line {
+    background-color: aquamarine;
 }
 
-.btn a {
-    width: 100%;
-    color: white;
+.b-line {
+    background-color: lightcoral;
+}
 
+.c-line {
+    background-color: lightblue;
+}
+
+.btn-line {
+    margin-bottom: 20px;
+    /* 余白の設定 */
+    overflow: hidden;
+    /* 子要素の浮動解除 */
+    /* ボタンの表示が枠からはみ出ているので,btnlineグループいまとめられなかった。hiddenを使うことでmarginのはみ出てるところが非表示にできる */
+}
+
+.btn {
+    font-size: 24px;
+    width: 10%;
+    margin-right: 5%;
+    float: left;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border: 5px solid black;
+    opacity: 0.8;
+    position: relative;
+}
+
+.btn img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid black;
+}
+
+.btn:hover {
+    opacity: 1;
 }
