@@ -7,7 +7,7 @@ const btn = [
     { price: 140, name: "フォンダンショコラ" },
     { price: 150, name: "チョコバナナ" },
     { price: 160, name: "チョコクランチ" },
-    { price: 160, name: "オレンジ&ヨーグルト" },
+    { price: 160, name: "オレンジヨーグルト" },
     { price: 160, name: "チョコクランチ" },
     { price: 160, name: "チョコクランチ" },
     { price: 160, name: "チョコクランチ" },
