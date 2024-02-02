@@ -1,16 +1,27 @@
-const btn =
-{
-    price: [100, 110, 120, 130],
-    name: ["プレーン", "チョコ", "抹茶", "イチゴ", "メロンパン", "糖質低減プレーン"]
-};
+
+const btn = [
+    { price: 100, name: "プレーン" },
+    { price: 110, name: "おぐら" },
+    { price: 120, name: "ブルーベリーチーズ" },
+    { price: 130, name: "低糖質プレーン" },
+    { price: 140, name: "フォンダンショコラ" },
+    { price: 150, name: "チョコバナナ" },
+    { price: 160, name: "チョコクランチ" },
+    { price: 160, name: "オレンジ&ヨーグルト" },
+    { price: 160, name: "チョコクランチ" },
+    { price: 160, name: "チョコクランチ" },
+    { price: 160, name: "チョコクランチ" },
+    { price: 160, name: "チョコクランチ" },
+]
 
 
 let total = 0;
 let number = 0;
-const btnlength = btn.name.length;
+const btnlength = btn.length;
 const $buttonName = document.getElementsByClassName("btn-name");
 const $button = document.getElementsByTagName("button");
 const $buttonImage = document.getElementsByClassName("Image");
+
 const $numberdisplay = document.getElementById("number-dis");
 const $totaldisplay = document.getElementById("total-dis");
 
@@ -23,57 +34,57 @@ const $totaldisplay = document.getElementById("total-dis");
 
 
 
-//クリック時のpriceの合計、回数を表示
-const ClickButton = (e) => {
+// クリック時のpriceの合計、回数を表示
+// const ClickButton = (e) => {
+//     for (let i = 0; i < btnlength; i++) {
+//         if (btn.name[i] === e.target.textContent) {
+//             total += btn.price[i];
+//             number++;
+//         }
+//     }
+
+//     console.log(e.target);
+//     Display();
+// }
+
+
+// const clickedElement = e.target;
+// ClickButton();
+// console.log(total);
+// console.log(number);
+
+
+//ボタン
+const Button_function = () => {
     for (let i = 0; i < btnlength; i++) {
-        if (btn.name[i] === e.target.textContent) {
-            total += btn.price[i];
-            number++;
-        }
+        // ボタン名前
+        $buttonName[i].textContent = btn[i].name;
     }
-
-    console.log(e.target);
-    Display();
-}
-
-
-const ClickFunction = () => {
-    // const clickedElement = e.target;
-    //     ClickButton();
+    // $button.addEventListener("click", (e) => {
+    //     ClickButton(e);
     //     console.log(total);
     //     console.log(number);
-    if ("name" === $button.innerHTML) {
-        total += btn.price[0];
-        number++;
-    }
-    console.log("aaa");
-    console.log(total);
-    console.log(number);
-    console.log($button.innerHTML);
+    // });
+
+
+    // for (let j = 0; j < btnlength; j++) {
+    //     // ボタンclick
+    //     $button[j].addEventListener("click", (e) => {
+    //         ClickButton(e);
+    //         console.log(total);
+    //         console.log(number);
+    //     });
+    // }
+};
+
+//画面表示
+const Display = () => {
+    $numberdisplay.textContent = number;
+    $totaldisplay.textContent = total;
 }
 
-// ボタン
-// const Button_function = () => {
-//     for (let i = 0; i < btnlength; i++) {
-//         // ボタン名前
-//         $buttonName[i].textContent = btn.name[i];
-//     }
-//     $button.addEventListener("click", (e) => {
-//         ClickButton(e);
-//         console.log(total);
-//         console.log(number);
-//     });
-
-
-//     // for (let j = 0; j < btnlength; j++) {
-//     //     // ボタンclick
-//     //     $button[j].addEventListener("click", (e) => {
-//     //         ClickButton(e);
-//     //         console.log(total);
-//     //         console.log(number);
-//     //     });
-//     // }
-// };
+Button_function();
+Display();
 
 // const Click = () => {
 //     $button.addEventListener("click", (e) => {
@@ -83,12 +94,45 @@ const ClickFunction = () => {
 //     });
 // };
 
+class click {
+    constructor(buttonId, buttonNumber) {
+        this.buttonId = buttonId;
+        this.buttonNumber = buttonNumber;
+        console.log("clickインスタンスが作成されました");
+    }
 
-//画面表示
-const Display = () => {
-    $numberdisplay.textContent = number;
-    $totaldisplay.textContent = total;
+    clickFunction() {
+        if (this.buttonId === `btn${this.buttonNumber}`) {
+            total += btn[this.buttonNumber].price;
+            number++;
+        }
+        // 画面表示更新
+        Display();
+    }
 }
 
-// Button_function();
-Display();
+
+
+
+const ClickFunction = (buttonId) => {
+    for (let i = 0; i < btnlength; i++) {
+        const clickInstance = new click(buttonId, i);
+        clickInstance.clickFunction();
+    }
+    // const click0 = new click(buttonId, 0);
+    // click0.clickFunction();
+    // const click1 = new click(buttonId, 1);
+    // click1.clickFunction();
+    // const click2 = new click(buttonId, 2);
+    // click2.clickFunction();
+
+    console.log("aaa");
+    console.log(total);
+    console.log(number);
+
+}
+
+
+
+
+
