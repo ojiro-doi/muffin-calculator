@@ -8,10 +8,10 @@ const btn = [
     { price: 150, name: "チョコバナナ" },
     { price: 160, name: "チョコクランチ" },
     { price: 160, name: "オレンジヨーグルト" },
-    { price: 160, name: "チョコクランチ" },
-    { price: 160, name: "チョコクランチ" },
-    { price: 160, name: "チョコクランチ" },
-    { price: 160, name: "チョコクランチ" },
+    { price: 160, name: "クリームブリュレ" },
+    { price: 160, name: "メロンパン" },
+    { price: 160, name: "アップルカスタード" },
+
 ]
 
 
@@ -98,13 +98,26 @@ class click {
     constructor(buttonId, buttonNumber) {
         this.buttonId = buttonId;
         this.buttonNumber = buttonNumber;
-        console.log("clickインスタンスが作成されました");
     }
 
     clickFunction() {
         if (this.buttonId === `btn${this.buttonNumber}`) {
+            console.log("clickインスタンスが作成されました");
             total += btn[this.buttonNumber].price;
             number++;
+            if (number % 3 === 0) {
+                console.log("totalで-30")
+                total -= 30;
+                $numberdisplay.classList.add('highlighted_3');
+            } else {
+                $numberdisplay.classList.remove('highlighted_3');
+            }
+            if (number === 6&&total>880||number === 9&&total>1260) {
+                console.log("セットの方が安い")
+                $totaldisplay.classList.add('highlighted');
+            } else {
+                $totaldisplay.classList.remove('highlighted');
+            }
         }
         // 画面表示更新
         Display();
@@ -126,10 +139,8 @@ const ClickFunction = (buttonId) => {
     // const click2 = new click(buttonId, 2);
     // click2.clickFunction();
 
-    console.log("aaa");
     console.log(total);
     console.log(number);
-
 }
 
 
