@@ -40,9 +40,6 @@ const display = () => {
 };
 
 const displayLog = () => {
-    if (number % 3 === 0 && number !== 0) {
-        console.log("totalから-30");
-    }
     console.log(`number : ${number}`);
     console.log(`total  : ${total}`);
     console.log("");
@@ -59,7 +56,6 @@ const displayColor = () => {
         $totaldisplay.classList.add('highlighted');
     } else {
         $totaldisplay.classList.remove('highlighted');
-        console.log("単品の方が安い")
     }
 };
 
@@ -80,8 +76,19 @@ class click {
             total += btn[this.buttonNumber].price;
             number++;
             if (number % 3 === 0 && number !== 0) {
+                console.log("-30円引き");
                 total -= 30;
             }
+        }
+    }
+
+    clickFunction_night() {
+        if (this.buttonId === `btn${this.buttonNumber}`) {
+            console.log("clickインスタンスが作成されました");
+            total += btn[this.buttonNumber].price;
+            number++;
+            console.log("-30円引き");
+            total -= 30;
         }
     }
 };
@@ -93,6 +100,21 @@ const buttonClick = (buttonId) => {
     for (let i = 0; i < btnLength; i++) {
         const clickInstance = new click(buttonId, i);
         clickInstance.clickFunction();
+    }
+
+    // 画面表示更新
+    display();
+    displayColor();
+    displayLog();
+};
+
+const buttonClick_night = (buttonId) => {
+    //クリック前のvalueを保存
+    total_pre = total;
+    number_pre = number;
+    for (let i = 0; i < btnLength; i++) {
+        const clickInstance = new click(buttonId, i);
+        clickInstance.clickFunction_night();
     }
 
     // 画面表示更新
@@ -119,6 +141,10 @@ const undoValue = () => {
     displayColor();
 };
 
+const navigate1 = () => {
+    location.href = 'index2.html';
+}
 
-
-
+const navigate2 = () => {
+    location.href = 'index.html';
+}
