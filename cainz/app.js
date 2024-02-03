@@ -17,7 +17,9 @@ const btn = [
 
 let total = 0;
 let number = 0;
-const btnlength = btn.length;
+let total_pre = 0;
+let number_pre = 0
+const btnLength = btn.length;
 const $buttonName = document.getElementsByClassName("btn-name");
 const $button = document.getElementsByTagName("button");
 const $buttonImage = document.getElementsByClassName("Image");
@@ -36,7 +38,7 @@ const $totaldisplay = document.getElementById("total-dis");
 
 // クリック時のpriceの合計、回数を表示
 // const ClickButton = (e) => {
-//     for (let i = 0; i < btnlength; i++) {
+//     for (let i = 0; i < btnLength; i++) {
 //         if (btn.name[i] === e.target.textContent) {
 //             total += btn.price[i];
 //             number++;
@@ -44,7 +46,7 @@ const $totaldisplay = document.getElementById("total-dis");
 //     }
 
 //     console.log(e.target);
-//     Display();
+//     display();
 // }
 
 
@@ -55,8 +57,8 @@ const $totaldisplay = document.getElementById("total-dis");
 
 
 //ボタン
-const Button_function = () => {
-    for (let i = 0; i < btnlength; i++) {
+const buttonName = () => {
+    for (let i = 0; i < btnLength; i++) {
         // ボタン名前
         $buttonName[i].textContent = btn[i].name;
     }
@@ -67,7 +69,7 @@ const Button_function = () => {
     // });
 
 
-    // for (let j = 0; j < btnlength; j++) {
+    // for (let j = 0; j < btnLength; j++) {
     //     // ボタンclick
     //     $button[j].addEventListener("click", (e) => {
     //         ClickButton(e);
@@ -78,18 +80,18 @@ const Button_function = () => {
 };
 
 //画面表示
-const Display = () => {
+const display = () => {
     $numberdisplay.textContent = number;
     $totaldisplay.textContent = total;
 }
 
-const DisplayLog = () => {
+const displayLog = () => {
     console.log(`回数：${number}`);
     console.log(`合計：${total}`);
 }
 
-Button_function();
-Display();
+buttonName();
+display();
 
 // const Click = () => {
 //     $button.addEventListener("click", (e) => {
@@ -125,15 +127,20 @@ class click {
             }
         }
         // 画面表示更新
-        Display();
+        display();
+
+
     }
 }
 
 
 
 
-const Click_Function = (buttonId) => {
-    for (let i = 0; i < btnlength; i++) {
+const buttonClick = (buttonId) => {
+    //クリック前のvalueを保存
+    total_pre = total;
+    number_pre = number;
+    for (let i = 0; i < btnLength; i++) {
         const clickInstance = new click(buttonId, i);
         clickInstance.clickFunction();
     }
@@ -144,18 +151,21 @@ const Click_Function = (buttonId) => {
     // const click2 = new click(buttonId, 2);
     // click2.clickFunction();
 
-    DisplayLog();
+    displayLog();
 }
 
-const reset = () => {
+const resetValue = () => {
     total = 0;
     number = 0;
-    Display();
-    DisplayLog();
+    display();
+    displayLog();
 }
 
-const return=()=>{
-    
+const undoValue = () => {
+    total=total_pre;
+    number=number_pre;
+    display();
+    displayLog();
 }
 
 
