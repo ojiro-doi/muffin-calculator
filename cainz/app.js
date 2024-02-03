@@ -1,7 +1,7 @@
 
 const btn = [
     { price: 100, name: "プレーン" },
-    { price: 110, name: "おぐら" },
+    { price: 110, name: "おぐらバター" },
     { price: 120, name: "ブルーベリーチーズ" },
     { price: 130, name: "低糖質プレーン" },
     { price: 140, name: "フォンダンショコラ" },
@@ -83,6 +83,11 @@ const Display = () => {
     $totaldisplay.textContent = total;
 }
 
+const DisplayLog = () => {
+    console.log(`回数：${number}`);
+    console.log(`合計：${total}`);
+}
+
 Button_function();
 Display();
 
@@ -112,7 +117,7 @@ class click {
             } else {
                 $numberdisplay.classList.remove('highlighted_3');
             }
-            if (number === 6&&total>880||number === 9&&total>1260) {
+            if (number === 6 && total > 880 || number === 9 && total > 1260) {
                 console.log("セットの方が安い")
                 $totaldisplay.classList.add('highlighted');
             } else {
@@ -127,7 +132,7 @@ class click {
 
 
 
-const ClickFunction = (buttonId) => {
+const Click_Function = (buttonId) => {
     for (let i = 0; i < btnlength; i++) {
         const clickInstance = new click(buttonId, i);
         clickInstance.clickFunction();
@@ -139,10 +144,19 @@ const ClickFunction = (buttonId) => {
     // const click2 = new click(buttonId, 2);
     // click2.clickFunction();
 
-    console.log(total);
-    console.log(number);
+    DisplayLog();
 }
 
+const reset = () => {
+    total = 0;
+    number = 0;
+    Display();
+    DisplayLog();
+}
+
+const return=()=>{
+    
+}
 
 
 
