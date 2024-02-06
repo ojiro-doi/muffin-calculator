@@ -11,7 +11,7 @@ const btn = [
     { price: 160, name: "クリームブリュレ" },
     { price: 160, name: "メロンパン" },
     { price: 160, name: "アップルカスタード" },
-
+    
 ]
 
 let total = 0;
