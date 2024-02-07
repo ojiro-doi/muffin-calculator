@@ -11,13 +11,13 @@ const btn = [
     { price: 160, name: "クリームブリュレ" },
     { price: 160, name: "メロンパン" },
     { price: 160, name: "アップルカスタード" },
-    
+
 ]
 
+// let currentPageURL = location.href;
 let total = 0;
 let number = 0;
-let total_pre = 0;
-let number_pre = 0
+let total_pre = Array(100);
 const btnLength = btn.length;
 const $buttonName = document.getElementsByClassName("btn-name");
 const $button = document.getElementsByTagName("button");
@@ -34,14 +34,17 @@ const buttonName = () => {
 };
 
 //画面表示
+
 const display = () => {
-    $numberdisplay.textContent = number;
-    $totaldisplay.textContent = total;
+    if (number >= 0 && total >= 0) {
+        $numberdisplay.textContent = number;
+        $totaldisplay.textContent = total;
+    }
 };
 
 const displayLog = () => {
-    console.log(`number : ${number}`);
-    console.log(`total  : ${total}`);
+    console.log(`number : ${number}回`);
+    console.log(`total  : ${total}円`);
     console.log("");
 };
 
@@ -59,6 +62,12 @@ const displayColor = () => {
     }
 };
 
+const displayFunction = () => {
+    display();
+    displayLog();
+    displayColor();
+}
+
 //初期表示
 buttonName();
 display();
@@ -73,6 +82,7 @@ class click {
         //計算
         if (this.buttonId === `btn${this.buttonNumber}`) {
             console.log("clickインスタンスが作成されました");
+            console.log(`${btn[this.buttonNumber].name} : ${btn[this.buttonNumber].price}円`);
             total += btn[this.buttonNumber].price;
             number++;
             if (number % 3 === 0 && number !== 0) {
@@ -85,6 +95,7 @@ class click {
     clickFunction_night() {
         if (this.buttonId === `btn${this.buttonNumber}`) {
             console.log("clickインスタンスが作成されました");
+            console.log(`${btn[this.buttonNumber].name} : ${btn[this.buttonNumber].price}円`);
             total += btn[this.buttonNumber].price;
             number++;
             console.log("-30円引き");
@@ -95,56 +106,55 @@ class click {
 
 const buttonClick = (buttonId) => {
     //クリック前のvalueを保存
-    total_pre = total;
-    number_pre = number;
+    // total_pre = total;
+    total_pre[number] = total;
+    // number_pre = number;
     for (let i = 0; i < btnLength; i++) {
         const clickInstance = new click(buttonId, i);
         clickInstance.clickFunction();
     }
 
     // 画面表示更新
-    display();
-    displayColor();
-    displayLog();
+    displayFunction();
 };
 
 const buttonClick_night = (buttonId) => {
     //クリック前のvalueを保存
-    total_pre = total;
-    number_pre = number;
+    total_pre[number] = total;
     for (let i = 0; i < btnLength; i++) {
         const clickInstance = new click(buttonId, i);
         clickInstance.clickFunction_night();
     }
 
     // 画面表示更新
-    display();
-    displayColor();
-    displayLog();
+    displayFunction();
 };
 
 const resetValue = () => {
     total = 0;
     number = 0;
     console.log("resetされました");
-    display();
-    displayLog();
-    displayColor();
+    displayFunction();
 };
 
 const undoValue = () => {
-    total = total_pre;
-    number = number_pre;
-    console.log("一つ前に戻りました");
-    display();
-    displayLog();
-    displayColor();
+    if (number > 0) {
+        total = total_pre[number - 1];
+        number -= 1;
+        console.log("一つ前に戻りました");
+        displayFunction();
+    } else {
+        console.log("これ以上戻ることはできません")
+    }
+
 };
 
 const navigate1 = () => {
+    resetValue();
     location.href = 'index2.html';
 }
 
 const navigate2 = () => {
+    resetValue();
     location.href = 'index.html';
 }

@@ -2,6 +2,7 @@
 <html class="night">
 
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -17,15 +18,15 @@
     <main>
         <div class="display-wrapper">
             <div id="number-dis" class="dis number">
-                <p>個数</p>
+                <p>0</p>
             </div>
             <div id="total-dis" class="dis total">
-                <p>合計</p>
+                <p>0</p>
             </div>
             <div class="btnFunction-wrapper">
-                <button onclick="resetValue()">reset</button>
-                <button onclick="undoValue()">undo</button>
-                <button onclick="navigate2()">normal</button>
+                <button class="btn-function btn-reset" onclick="resetValue()"><i class="material-icons">restart_alt</i></button>
+                <button class="btn-function btn-undo" onclick="undoValue()"><i class="material-icons">undo</i></button>
+                <button class="btn-function btn-sun" onclick="navigate2()"><i class="material-icons">sunny</i></button>
             </div>
         </div>
         <div class="btn-wrapper">
@@ -47,7 +48,7 @@
                 <button class="btn" onclick="buttonClick_night('btn8')"><img class="image" src="../public/images/m_CremeBrulee.jpg" alt="クリームブリュレ"><span class="btn-name">name</span></button>
                 <button class="btn" onclick="buttonClick_night('btn9')"><img class="image" src="../public/images/m_MelonBread.jpg" alt="メロンパン"><span class="btn-name">name</span></button>
                 <button class="btn" onclick="buttonClick_night('btn10')"><img class="image" src="../public/images/m_AppleCustard.jpg" alt="アップルカスタード"><span class="btn-name">name</span></button>
-                <button class="btn-none"></button>
+                <button class="btn-none-night"></button>
             </div>
         </div>
     </main>
