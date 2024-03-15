@@ -1,17 +1,16 @@
 
 const btn = [
-    { price: 100, name: "プレーン" },
-    { price: 110, name: "おぐらバター" },
-    { price: 120, name: "ブルーベリーチーズ" },
+    { price: 130, name: "プレーン" },
+    { price: 160, name: "おぐらバター" },
+    { price: 160, name: "ブルーベリーチーズ" },
     { price: 130, name: "低糖質プレーン" },
-    { price: 140, name: "フォンダンショコラ" },
-    { price: 150, name: "チョコバナナ" },
+    { price: 180, name: "フォンダンショコラ" },
+    { price: 180, name: "チョコバナナ" },
     { price: 160, name: "チョコクランチ" },
-    { price: 160, name: "オレンジヨーグルト" },
-    { price: 160, name: "クリームブリュレ" },
+    { price: 200, name: "オレンジヨーグルト" },
+    { price: 180, name: "クリームブリュレ" },
     { price: 160, name: "メロンパン" },
     { price: 160, name: "アップルカスタード" },
-
 ]
 
 // let currentPageURL = location.href;
@@ -25,10 +24,9 @@ const $buttonImage = document.getElementsByClassName("Image");
 const $numberdisplay = document.getElementById("number-dis");
 const $totaldisplay = document.getElementById("total-dis");
 
-//ボタン
+// ボタン名前
 const buttonName = () => {
     for (let i = 0; i < btnLength; i++) {
-        // ボタン名前
         $buttonName[i].textContent = btn[i].name;
     }
 };
@@ -54,7 +52,7 @@ const displayColor = () => {
     } else {
         $numberdisplay.classList.remove('highlighted_3');
     }
-    if (number === 6 && total > 880 || number === 9 && total > 1260) {
+    if (number === 6 && total > 880 || number === 9 && total > 1280 || number === 12 && total > 1680) {
         console.log("セットの方が安い");
         $totaldisplay.classList.add('highlighted');
     } else {
@@ -91,6 +89,7 @@ class click {
             }
         }
     }
+
 
     clickFunction_night() {
         if (this.buttonId === `btn${this.buttonNumber}`) {
