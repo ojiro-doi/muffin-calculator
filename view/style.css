@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.night {
+  background-color: lightgray;
+}
+
+/* header */
+body {
+  font-family: "Avenir Next";
+}
+
+header {
+  height: 10%;
+  background-color: rgb(133, 127, 127);
+}
+
+.logo img {
+  width: 72px;
+  margin-top: 5px;
+}
+
+/* main */
+main {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.display-wrapper {
+  display: flex;
+  justify-content: space-between;
+  /* 子要素を両端に配置 */
+  align-items: center;
+  /* 垂直方向に中央寄せ */
+  width: 50%;
+  height: 100%;
+  margin: 1% auto;
+}
+
+.number {
+  flex: 2;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+  font-size: 32px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;
+  margin-left: 1%;
+}
+
+.total {
+  flex: 8;
+  color: black;
+  background-color: white;
+  border: 3px solid black;
+  border-left: none;
+  font-size: 32px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: bold;
+  /* margin-right: 5%; */
+}
+
+.btnFunction-wrapper {
+  display: flex;
+  /* align-items: center; */
+}
+
+.btn-function {
+  border-radius: 50%;
+  /* line-height: 50px; */
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background: #fff;
+}
+
+.btn-function:hover {
+  color: #fff;
+  background: #000;
+}
+
+.highlighted_3 {
+  background-color: yellow;
+}
+
+.highlighted {
+  background-color: red;
+}
+
+.btn-wrapper {
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.btn-line {
+  /* 余白の設定 */
+  overflow: hidden;
+  /* 子要素の浮動解除 */
+  /* ボタンの表示が枠からはみ出ているので,btnlineグループいまとめられなかった。hiddenを使うことでmarginのはみ出てるところが非表示にできる */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.btn {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  margin: 1% 1%;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border: 3px solid black;
+  font-weight: bold;
+}
+
+.image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-bottom: 2px solid black;
+  opacity: 0.6;
+}
+
+.btn-none {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  margin: 1% 1%;
+  background-color: white;
+  color: white;
+  text-align: center;
+  border: 3px solid white;
+  font-weight: bold;
+}
+
+.btn-none-night {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  margin: 1% 1%;
+  background-color: lightgrey;
+  color: lightgrey;
+  text-align: center;
+  border: 3px solid lightgrey;
+  font-weight: bold;
+}
+
+.btn img:hover {
+  opacity: 1;
+}
+
+/* footer */
+footer {
+}

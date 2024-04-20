@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="night">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CAFEBRICCOマフィン計算機</title>
+</head>
+
+<body>
+    <header>
+        <!-- <div class="logo">
+            <img src="https://cafe-bricco.cainz.com/wp-content/themes/cafebricco/img/logo_footer.svg" alt="logo">
+        </div> -->
+    </header>
+    <main>
+        <div class="display-wrapper">
+            <div id="number-dis" class="dis number">
+                <p>0</p>
+            </div>
+            <div id="total-dis" class="dis total">
+                <p>0</p>
+            </div>
+            <div class="btnFunction-wrapper">
+                <button class="btn-function btn-reset" onclick="resetValue()"><i class="material-icons">restart_alt</i></button>
+                <button class="btn-function btn-undo" onclick="undoValue()"><i class="material-icons">undo</i></button>
+                <button class="btn-function btn-sun" onclick="navigate2()"><i class="material-icons">sunny</i></button>
+            </div>
+        </div>
+        <div class="btn-wrapper">
+            <div class="btn-line a-line">
+                <button class="btn" onclick="buttonClick_night('btn0')"><img class="image" src="../public/images/m_Plane.jpg" alt="プレーン"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn1')"><img class="image" src="../public/images/m_Ogura.jpg" alt="おぐらバター"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn2')"><img class="image" src="../public/images/m_BlueberryCheese.jpg" alt="ブルーベリーチーズ"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn3')"><img class="image" src="../public/images/m_LowSugarPlane.jpg" alt="低糖質プレーン"><span class="btn-name">name</span></button>
+            </div>
+
+            <div class="btn-line b-line">
+                <button class="btn" onclick="buttonClick_night('btn4')"><img class="image" src="../public/images/m_FondantChocolate.jpg" alt="フォンダンショコラ"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn5')"><img class="image" src="../public/images/m_BananaChocolate.jpg" alt="チョコバナナ"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn6')"><img class="image" src="../public/images/m_CrunchChocolate.jpg" alt="チョコクランチ"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn7')"><img class="image" src="../public/images/m_OrangeYogurt.jpg" alt="オレンジ＆ヨーグルト"><span class="btn-name">name</span></button>
+            </div>
+
+            <div class="btn-line c-line">
+                <button class="btn" onclick="buttonClick_night('btn8')"><img class="image" src="../public/images/m_CremeBrulee.jpg" alt="クリームブリュレ"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn9')"><img class="image" src="../public/images/m_MelonBread.jpg" alt="メロンパン"><span class="btn-name">name</span></button>
+                <button class="btn" onclick="buttonClick_night('btn10')"><img class="image" src="../public/images/m_AppleCustard.jpg" alt="アップルカスタード"><span class="btn-name">name</span></button>
+                <button class="btn-none-night">none</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+<footer>
+
+<footer>
+
+<script src="../app.js"></script>
+
+</html>
